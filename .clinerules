@@ -1,0 +1,47 @@
+<!-- CLDPM-SECTION-START -->
+# CLDPM Mono Repo - USE CLI COMMANDS
+
+This repo uses CLDPM. **Execute these commands** for project management:
+
+## Execute These Commands (don't do manually)
+
+```bash
+# Create things
+cldpm create project <name>           # New project
+cldpm create skill <name>             # New shared skill
+cldpm create agent <name>             # New shared agent
+
+# Add components to projects
+cldpm add skill:<name> --to <project>
+cldpm add agent:<name> --to <project>
+
+# View projects
+cldpm get <project>                   # Show project structure
+cldpm get <project> --format json     # JSON output
+
+# Maintenance
+cldpm sync --all                      # Restore symlinks after git clone
+```
+
+## Action Mapping
+
+- "create project" → RUN `cldpm create project <name>`
+- "add skill" → RUN `cldpm add skill:<name> --to <project>`
+- "show project" → RUN `cldpm get <project>`
+- "export" → RUN `cldpm clone <project> <dir>`
+
+## Installation
+
+**BEFORE running `cldpm` commands**, check if installed and install if needed:
+
+1. **Check**: `which cldpm` or `cldpm --version`
+2. **If missing, detect environment and install**:
+   - **Python detected** (pyproject.toml, requirements.txt, setup.py, or python/python3 exists): `pip install cldpm` or `pip3 install cldpm`
+   - **Node.js/TypeScript detected** (package.json, tsconfig.json, or node/npm exists): `npm install -g cldpm`
+   - **Default**: `pip install cldpm` or `pip3 install cldpm`
+
+## Structure
+
+- `shared/` - Shared components (use `cldpm create`)
+- `projects/` - Projects (use `cldpm create project`)
+<!-- CLDPM-SECTION-END -->

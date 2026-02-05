@@ -1,0 +1,14 @@
+{
+  "name": "company-intel",
+  "description": "Project for gathering company intelligence and research",
+  "dependencies": {
+    "skills": [
+      "company-research"
+    ],
+    "agents": [],
+    "hooks": [
+      "postprocess-markdown"
+    ],
+    "rules": []
+  }
+}

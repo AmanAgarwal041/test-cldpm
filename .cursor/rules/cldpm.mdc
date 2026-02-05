@@ -1,0 +1,87 @@
+---
+description: CLDPM mono repo - ALWAYS use cldpm CLI for project management
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+<!-- CLDPM-SECTION-START -->
+# CLDPM - Claude Project Manager
+
+This is a CLDPM-managed mono repo. **You MUST use `cldpm` CLI commands** to manage projects, skills, agents, hooks, and rules. Do NOT manually create or modify project structures.
+
+## IMPORTANT: Execute These Commands
+
+When the user asks you to perform any of these actions, **run the corresponding command in the terminal**:
+
+### Creating Things
+| User Request | Command to Execute |
+|--------------|-------------------|
+| "create a project" / "new project" | `cldpm create project <name>` |
+| "create a skill" / "new skill" | `cldpm create skill <name>` |
+| "create an agent" / "new agent" | `cldpm create agent <name>` |
+| "create a hook" | `cldpm create hook <name>` |
+| "create a rule" | `cldpm create rule <name>` |
+
+### Managing Components
+| User Request | Command to Execute |
+|--------------|-------------------|
+| "add skill to project" / "use skill in" | `cldpm add skill:<name> --to <project>` |
+| "add agent to project" | `cldpm add agent:<name> --to <project>` |
+| "remove skill from project" | `cldpm remove skill:<name> --from <project>` |
+| "link skills" / "skill depends on" | `cldpm link skill:<dep> --to skill:<target>` |
+
+### Viewing & Exporting
+| User Request | Command to Execute |
+|--------------|-------------------|
+| "show project" / "project info" / "what's in project" | `cldpm get <project>` |
+| "list projects" | `cldpm get <project> --format json` |
+| "export project" / "standalone copy" | `cldpm clone <project> <directory>` |
+| "fix symlinks" / "restore links" | `cldpm sync --all` |
+
+## Directory Structure
+
+```
+test-cldpm/
+├── cldpm.json              # Root configuration (DO NOT edit manually)
+├── shared/           # Shared components
+│   ├── skills/
+│   ├── agents/
+│   ├── hooks/
+│   └── rules/
+└── projects/         # Individual projects
+    └── <project>/
+        ├── project.json    # Project manifest (managed by cldpm)
+        └── .claude/        # Symlinked + local components
+```
+
+## Installation
+
+**BEFORE running any `cldpm` command**, check if it's installed and install if needed:
+
+1. **Check if `cldpm` exists**: Run `which cldpm` or `cldpm --version`
+2. **If not found, detect environment and install**:
+   ```bash
+   # Check for Python environment (pyproject.toml, requirements.txt, setup.py, or python/python3 command)
+   if [ -f "pyproject.toml" ] || [ -f "requirements.txt" ] || [ -f "setup.py" ] || command -v python &> /dev/null || command -v python3 &> /dev/null; then
+     pip install cldpm || pip3 install cldpm
+   # Check for Node.js/TypeScript environment (package.json, tsconfig.json, or node/npm command)
+   elif [ -f "package.json" ] || [ -f "tsconfig.json" ] || command -v node &> /dev/null || command -v npm &> /dev/null; then
+     npm install -g cldpm
+   # Default to Python if neither detected
+   else
+     pip install cldpm || pip3 install cldpm
+   fi
+   ```
+
+**Or manually install**:
+- Python: `pip install cldpm` or `pip3 install cldpm`
+- Node.js: `npm install -g cldpm`
+
+## Rules
+
+1. **ALWAYS** use `cldpm` commands - never manually create project.json or skill.json files
+2. **ALWAYS** run `cldpm sync --all` after git pull/clone
+3. **NEVER** manually create symlinks - use `cldpm add` instead
+4. When creating components, add `-d "description"` for documentation
+<!-- CLDPM-SECTION-END -->

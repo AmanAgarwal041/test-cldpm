@@ -1,0 +1,50 @@
+<!-- CLDPM-SECTION-START -->
+# CLDPM Mono Repo - EXECUTE CLI COMMANDS
+
+**IMPORTANT**: This repo is managed by CLDPM. Always execute `cldpm` commands instead of manually editing files.
+
+## Command Reference - EXECUTE THESE
+
+### When user wants to create:
+```bash
+cldpm create project <name>     # Execute for: "create project", "new project"
+cldpm create skill <name>       # Execute for: "create skill", "new skill"
+cldpm create agent <name>       # Execute for: "create agent", "new agent"
+```
+
+### When user wants to add/remove:
+```bash
+cldpm add skill:<name> --to <project>      # Execute for: "add skill to"
+cldpm remove skill:<name> --from <project> # Execute for: "remove skill from"
+```
+
+### When user wants to view/export:
+```bash
+cldpm get <project>                  # Execute for: "show project", "project info"
+cldpm clone <project> <directory>    # Execute for: "export", "standalone"
+cldpm sync --all                     # Execute for: "fix links", "after clone"
+```
+
+## Structure
+
+```
+test-cldpm/
+├── cldpm.json          # Config (managed by cldpm)
+├── shared/       # Shared components
+└── projects/     # Projects
+```
+
+## Installation
+
+**BEFORE running `cldpm` commands**, check if installed and install if needed:
+
+1. **Check**: `which cldpm` or `cldpm --version`
+2. **If missing, detect environment and install**:
+   - **Python detected** (pyproject.toml, requirements.txt, setup.py, or python/python3 exists): `pip install cldpm` or `pip3 install cldpm`
+   - **Node.js/TypeScript detected** (package.json, tsconfig.json, or node/npm exists): `npm install -g cldpm`
+   - **Default**: `pip install cldpm` or `pip3 install cldpm`
+
+## Rules
+- NEVER manually edit project.json or skill.json
+- ALWAYS use cldpm commands
+<!-- CLDPM-SECTION-END -->

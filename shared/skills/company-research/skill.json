@@ -1,0 +1,10 @@
+{
+  "name": "company-research",
+  "description": "Skill to research and gather information about companies",
+  "dependencies": {
+    "skills": [],
+    "agents": [],
+    "hooks": [],
+    "rules": []
+  }
+}

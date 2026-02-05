@@ -1,0 +1,10 @@
+{
+  "name": "postprocess-markdown",
+  "description": "Hook to postprocess data and convert to markdown format",
+  "dependencies": {
+    "skills": [],
+    "agents": [],
+    "hooks": [],
+    "rules": []
+  }
+}

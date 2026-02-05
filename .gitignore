@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.venv/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# <!-- CLDPM-SECTION-START -->
+# CLDPM - Claude Project Manager
+.cldpm/cache/
+
+# CLDPM Note: Shared component symlinks are managed per-directory
+# Each .claude/{skills,agents,hooks,rules}/ has its own .gitignore
+# that only ignores symlinked shared components.
+# Project-specific components in those directories ARE committed.
+# <!-- CLDPM-SECTION-END -->
