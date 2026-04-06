@@ -2,11 +2,13 @@
   "id": "testing",
   "name": "Testing project",
   "description": "Project for gathering company intelligence and research",
+  "agents": ["helper-agent"],
   "dependencies": {
     "skills": [
-      "company-research"
+      "company-research",
+      "new-skill"
     ],
-    "agents": [],
+    "agents": ["new-agent"],
     "hooks": [
       "postprocess-markdown"
     ],
